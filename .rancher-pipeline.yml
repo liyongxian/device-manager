@@ -1,2 +1,15 @@
+stages:
+- name: compile
+  steps:
+  - runScriptConfig:
+      image: maven:3-jdk-7
+      shellScript: mvn clean install
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: device-manager:${CICD_GIT_BRANCH}
+      registry: 127.0.0.1:34777
 timeout: 60
 notification: {}
