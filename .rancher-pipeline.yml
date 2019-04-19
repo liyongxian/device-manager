@@ -2,7 +2,7 @@ stages:
 - name: compile
   steps:
   - runScriptConfig:
-      image: maven:3-jdk-7
+      image: maven:3-jdk-12
       shellScript: mvn clean install
 - name: build
   steps:
